@@ -13,7 +13,7 @@
   "checkApproval": true,
   "language": "en",
   "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-  "nickNameBot": "-`ღ´ᵞᴼᵁᴿ 🌷𝐁𝐁'𝐗᯽",
+  "nickNameBot": "Rose Dawson",
   "prefix": "/",
   "adminOnly": {
     "enable": false,
@@ -21,7 +21,7 @@
   },
   "adminBot": [
   
-    "61564913640716",
+    "61550806961724",
     "",
     "",
     "",
@@ -30,7 +30,7 @@
   ],
   "whiteListMode": {
     "enable": false,
-    "whiteListIds": ["61564913640716",
+    "whiteListIds": ["61550806961724",
 "",
       ""
     ],
