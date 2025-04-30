@@ -16,14 +16,14 @@ config: {
   onStart: async function ({ api, event }) {
   try {
     const ownerInfo = {
-      name: 'APON 💝👽',
-      choise: 'SIMPLE GILRS 🔥',
-      habit: 'talking with girls 🔥',
-      gender: 'Male',
-      age: 'secret',
-      height: '_hat 🐸🤠',
-      facebookLink: 'https://www.facebook.com/share/1BfGepkNh7/',
-      nick: 'sujon 💫🔥'
+      name: 'SΩℑᎎß 💀',
+      choise: 'RUSSIAN GIRLS 👻',
+      habit: 'LIVE SINGING 🎙️',
+      gender: 'MALE',
+      age: '99+🐱',
+      height: '_99+🐸',
+      facebookLink: 'https://www.facebook.com/share/19DUqU69Th/',
+      nick: 'SΩℑᎎß 🌻'
     };
 
     const bold = 'https://i.imgur.com/LbneO8C.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
