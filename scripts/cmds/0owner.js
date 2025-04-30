@@ -21,7 +21,7 @@ config: {
       age: '15+',
       height: '5.7',
       choise: 'RUSSIAN 🙁',
-      nick: 'Bby bolbi 😞🫵  '
+      nick: 'Bby bolbi 😞🫵,  
     };
 
     const bold = 'https://i.imgur.com/v9A1DLB.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
