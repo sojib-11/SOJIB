@@ -55,9 +55,9 @@ module.exports = {
 
 			listAdmin: "👑 | List of whiteListIds:\n%1",
 
-      enable: "✅ Turned on",
+      enable: "☑️ | WhiteList mode is now  🔴enable🔴",
 
-      disable: "✅ Turned off"
+      disable: "✅ | WhiteList mode is now 🟩disabled🟢"
 
 		}
 
