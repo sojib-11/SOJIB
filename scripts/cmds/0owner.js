@@ -1,66 +1,213 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs-extra");
+
+const request = require("request");
+
+const os = require("os");
+
+
 
 module.exports = {
-config: {
-  name: "owner",
-  aurthor:"Tokodori",// Convert By Goatbot Tokodori 
-   role: 0,
-  shortDescription: " ",
-  longDescription: "",
-  category: "admin",
-  guide: "{pn}"
-},
 
-  onStart: async function ({ api, event }) {
-  try {
-    const ownerInfo = {
-      name: 'SΩℑᎎß',
-      gender: '𝐌𝐚𝐥𝐞',
-      age: '15+',
-      height: '5.7',
-      choise: 'RUSSIAN 🙁',
-      nick: 'Bby bolbi 😞🫵,  
-    };
+  config: {
 
-    const bold = 'https://i.imgur.com/v9A1DLB.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    name: "owner",
 
-    const tmpFolderPath = path.join(__dirname, 'tmp');
+    version: "1.0",
 
-    if (!fs.existsSync(tmpFolderPath)) {
-      fs.mkdirSync(tmpFolderPath);
-    }
+    author: "✨ Eren Yeh ✨",
 
-    const videoResponse = await axios.get(bold, { responseType: 'arraybuffer' });
-    const videoPath = path.join(tmpFolderPath, 'owner_video.mp4');
+    shortDescription: "Show full bot owner info with videos & Urdu bio",
 
-    fs.writeFileSync(videoPath, Buffer.from(videoResponse.data, 'binary'));
+    longDescription: "Detailed owner information with bot stats, uptime, Urdu bio and cool videos.",
 
-    const response = ` 
-╭[ .  ]•〆 ᵀᴬᴺᴶᴵᴸ 〆 ]  ─⦿
-╭────────────◊
-├‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 
-├‣ 𝐍𝐚𝐦𝐞: ${ownerInfo.name}
-├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
-├‣ 𝐀𝐠𝐞 .${ownerInfo.age}
-├‣ 𝐍𝐢𝐜𝐤 : ${ownerInfo.nick}
-├‣ 𝐂𝐡𝐨𝐢𝐬𝐞:  ${ownerInfo.choise}   
-├‣ 𝐇𝐞𝐢𝐠𝐡𝐭 : ${ownerInfo.height}
-╰────────────◊ 
+    category: "ℹ️ Info",
+
+    guide: {
+
+      en: ".owner"
+
+    },
+
+    usePrefix: true
+
+  },
+
+
+
+  onStart: async function ({ api, event }) {
+
+    const ownerInfo = {
+
+      name: "ODD _X SOJIB 💢 ",
+
+      whatsapp: "+8801727501820",
+
+      botName: "LIGHT YAGAMI 📩💥 ",
+
+      botType: "GoatBot",
+
+      commandCooldown: "5s",
+
+      ownerID: "61550628934323",
+
+      botVersion: "1.0",
+
+      bio: "اُسے نئے طریقوں سے بنانے کی صلاحیت ہے، ایک اچھا اور فعال معاون۔"
+
+    };
+
+
+
+    const botUptime = process.uptime();
+
+    const botHours = Math.floor(botUptime / 3600);
+
+    const botMinutes = Math.floor((botUptime % 3600) / 60);
+
+    const botSeconds = Math.floor(botUptime % 60);
+
+    const formattedBotUptime = `${botHours}h ${botMinutes}m ${botSeconds}s`;
+
+
+
+    const sysUptime = os.uptime();
+
+    const sysDays = Math.floor(sysUptime / (3600 * 24));
+
+    const sysHours = Math.floor((sysUptime % (3600 * 24)) / 3600);
+
+    const sysMinutes = Math.floor((sysUptime % 3600) / 60);
+
+    const sysSeconds = Math.floor(sysUptime % 60);
+
+    const formattedSysUptime = `${sysDays}d ${sysHours}h ${sysMinutes}m ${sysSeconds}s`;
+
+
+
+    const body = `
+
+╭──────────╮
+
+        ʙᴏᴛ ᴏᴡɴᴇʀ ɪɴғᴏ   😾💋
+
+╰──────────╯      ──────────────────────────╯
+
+
+
+👤 ᴏᴡɴᴇʀ ɴᴀᴍᴇ: ${ownerInfo.name}
+
+📱 ᴏᴡɴᴇʀ ᴡʜᴀᴛsᴀᴘᴘ: ${ownerInfo.whatsapp}
+
+
+
+📦 ʙᴏᴛ ᴛʏᴘᴇ: ${ownerInfo.botType}
+
+
+
+⏳ ᴄᴏᴍᴍᴀɴᴅ ᴄᴏᴏʟᴅᴏᴡɴ: ${ownerInfo.commandCooldown}
+
+
+
+🆔 ᴏᴡɴᴇʀ ɪᴅ: ${ownerInfo.ownerID}
+
+
+
+🤖 ʙᴏᴛ ɴᴀᴍᴇ: ${ownerInfo.botName}
+
+
+
+💬 ᴇᴘʜᴏ: Responsive bot for automation and management.
+
+
+
+
+
+🌟 ʙɪᴏ: ${ownerInfo.bio}
+
+
+
+────────────────────────────────────
+
+
+
+
+
 `;
 
-    await api.sendMessage({
-      body: response,
-      attachment: fs.createReadStream(videoPath)
-    }, event.threadID, event.messageID);
 
-    if (event.body.toLowerCase().includes('ownerinfo')) {
-      api.setMessageReaction('🚀', event.messageID, (err) => {}, true);
-    }
-  } catch (error) {
-    console.error('Error in ownerinfo command:', error);
-    return api.sendMessage('An error occurred while processing the command.', event.threadID);
-  }
-},
+
+    const imgurVideos = [
+
+      "https://i.imgur.com/0bCwiQa.mp4"
+
+    ];
+
+
+
+    const downloadVideo = (url, path) => {
+
+      return new Promise((resolve, reject) => {
+
+        request(url)
+
+          .pipe(fs.createWriteStream(path))
+
+          .on("close", resolve)
+
+          .on("error", reject);
+
+      });
+
+    };
+
+
+
+    const videoPaths = [];
+
+    for (let i = 0; i < imgurVideos.length; i++) {
+
+      const path = `${__dirname}/cache/video${i}.mp4`;
+
+      await downloadVideo(imgurVideos[i], path);
+
+      videoPaths.push(path);
+
+    }
+
+
+
+    api.sendMessage(
+
+      {
+
+        body,
+
+        attachment: videoPaths.map(p => fs.createReadStream(p))
+
+      },
+
+      event.threadID,
+
+      () => videoPaths.forEach(p => fs.unlinkSync(p)),
+
+      event.messageID
+
+    );
+
+  },
+
+
+
+  onChat: async function ({ event, message }) {
+
+    const body = event.body?.trim().toLowerCase();
+
+    if (body === "owner") {
+
+      return this.onStart({ event, message });
+
+    }
+
+  }
+
 };
