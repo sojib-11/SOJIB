@@ -68,7 +68,7 @@ module.exports = {
 `;
 
     const imgurVideos = [
-      "https://i.imgur.com/0bCwiQa.mp4"
+      "https://i.imgur.com/gqfpRqj.mp4"
     ];
 
     const downloadVideo = (url, path) => {
