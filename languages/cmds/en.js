@@ -40,8 +40,8 @@ module.exports = {
 		description: "turn on/off only admin can use bot",
 		guide: "{pn} [on | off]",
 		text: {
-			turnedOn: "Turned on the mode only admin can use bot",
-			turnedOff: "Turned off the mode only admin can use bot",
+			turnedOn: "Turned on✅ the mode only admin can use bot",
+			turnedOff: "Turned off☑️ the mode only admin can use bot",
 			syntaxError: "Syntax error, only use {pn} on or {pn} off"
 		}
 	},
