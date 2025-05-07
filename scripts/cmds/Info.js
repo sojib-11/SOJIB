@@ -1,104 +1,153 @@
-const fs = require("fs-extra");
-const request = require("request");
-const os = require("os");
+const moment = require('moment-timezone');
+
+const axios = require('axios');
+
+
 
 module.exports = {
+
   config: {
+
     name: "info",
-    version: "1.3",
-    author: "✨Eren Yeh  ✨",
-    shortDescription: "Display bot and user information along with uptime and Imgur images/videos.",
-    longDescription: "Show detailed info about the bot and the user, with uptime and Imgur image/video features.",
-    category: "INFO",
-    guide: {
-      en: "[user]",
+
+    aliases: ["inf", "in4"],
+
+    version: "2.0",
+
+    author: "Anthony | Edition by Xos Eren",
+
+    countDown: 5,
+
+    role: 0,
+
+    shortDescription: {
+
+      en: "Sends information about the bot and admin along with a video."
+
     },
-  },
 
-  onStart: async function ({ api, event, args }) {
-    // Replace with your info
-    const userInfo = {
-      name: "Apon",  // Replace with your name
-      age: "secret",           // Replace with your age
-      location: "lakshmipur",    // Replace with your location
-      bio: "kichu nai dekhar  | Always Learning!", // Replace with your bio
-      botName: "🕸️ rose Dawson 🥷", // Replace with bot's name
-      botVersion: "1.0",    // Replace with bot's version
-    };
+    longDescription: {
 
-    // Calculate bot uptime
-    const botUptime = process.uptime(); // in seconds
-    const botHours = Math.floor(botUptime / 3600);
-    const botMinutes = Math.floor((botUptime % 3600) / 60);
-    const botSeconds = Math.floor(botUptime % 60);
-    const formattedBotUptime = `${botHours} hours, ${botMinutes} minutes, ${botSeconds} seconds`;
+      en: "Sends information about the bot and admin along with a video."
 
-    // Calculate system uptime in days, hours, minutes, and seconds
-    const systemUptime = os.uptime(); // in seconds
-    const sysDays = Math.floor(systemUptime / (3600 * 24)); // Convert seconds to days
-    const sysHours = Math.floor((systemUptime % (3600 * 24)) / 3600); // Remaining hours
-    const sysMinutes = Math.floor((systemUptime % 3600) / 60); // Remaining minutes
-    const sysSeconds = Math.floor(systemUptime % 60); // Remaining seconds
-    const formattedSystemUptime = `${sysDays} days, ${sysHours} hours, ${sysMinutes} minutes, ${sysSeconds} seconds`;
+    },
 
-    // Example Imgur video links
-    const imgurLinks = [
-      "https://i.imgur.com/bde5ahr.mp4",  // Replace with actual Imgur video links
-      "https://i.imgur.com/QOBaSLt.mp4",
-    ];
+    category: "Information",
 
-    // Download videos and send them as attachments
-    const downloadVideo = (url, filePath) => {
-      return new Promise((resolve, reject) => {
-        request(url)
-          .pipe(fs.createWriteStream(filePath))
-          .on("close", resolve)
-          .on("error", reject);
-      });
-    };
+    guide: {
 
-    // Construct the body message with more space
-    const bodyMsg = `
-Information: 🥷
+      en: "{pn}"
 
-- Name: ${userInfo.name}
-- Age: ${userInfo.age}
-- Location: ${userInfo.location}
-- Bio: ${userInfo.bio}
-
-Bot Details:
-
-- Bot Name: ${userInfo.botName}
-- Bot Version: ${userInfo.botVersion}
-- Bot Uptime: ${formattedBotUptime}
-
-System Uptime:
-
-- System Uptime: ${formattedSystemUptime}
-
-─────────────────────
-`;
-
-    // Prepare video attachments
-    const videoPaths = [];
-    for (let i = 0; i < imgurLinks.length; i++) {
-      const videoPath = __dirname + `/cache/video${i}.mp4`;
-      await downloadVideo(imgurLinks[i], videoPath);
-      videoPaths.push(videoPath);
     }
 
-    // Send message with info and video attachments
-    api.sendMessage(
-      { 
-        body: bodyMsg, 
-        attachment: videoPaths.map(path => fs.createReadStream(path))
-      },
-      event.threadID,
-      () => {
-        // Clean up downloaded video files
-        videoPaths.forEach(path => fs.unlinkSync(path));
-      },
-      event.messageID
-    );
   },
+
+
+
+  onStart: async function ({ message }) {
+
+    this.sendInfo(message);
+
+  },
+
+
+
+  onChat: async function ({ event, message }) {
+
+    if (event.body && event.body.toLowerCase() === "info") {
+
+      this.sendInfo(message);
+
+    }
+
+  },
+
+
+
+  sendInfo: async function (message) {
+
+    const botName = "LIGHT YAGAMI 💥💌";
+
+    const authorName = "ODD_X SOJIB 💢";
+
+    const authorFB = "ODD_X SOJIB 💢";
+
+    const authorInsta = "raadx102";
+
+    const status = "MARRIED ❤️‍🩹";
+
+
+
+    const now = moment().tz('Asia/Dhaka');
+
+    const time = now.format('h:mm:ss A');
+
+
+
+    const uptime = process.uptime();
+
+    const seconds = Math.floor(uptime % 60);
+
+    const minutes = Math.floor((uptime / 60) % 60);
+
+    const hours = Math.floor((uptime / (60 * 60)) % 24);
+
+    const uptimeString = `${hours}h ${minutes}m ${seconds}s`;
+
+
+
+    const videoUrl = "https://i.imgur.com/xVbV8vW.mp4";
+
+
+
+    const body = `
+
+╔══『 𝗕𝗢𝗧 』══╗
+
+┏━━━━━━━━━━━━━━━━┓
+
+┃ 🧑 Admin Info
+
+┃ ╰➤ Name: ${authorName}
+
+┃ ╰➤ Facebook: ${authorFB}
+
+┃ ╰➤ Instagram: ${authorInsta}
+
+┃ ╰➤ Status: ${status}
+
+┃
+
+┃ 🤖 Bot Details
+
+┃ ╰➤ Name: ${botName}
+
+┃ ╰➤ Time: ${time}
+
+┃ ╰➤ Uptime: ${uptimeString}
+
+┗━━━━━━━━━━━━━━━━┛
+
+
+
+I may not be perfect,
+
+   but I’ll always reply to you.`;
+
+
+
+    const response = await axios.get(videoUrl, { responseType: 'stream' });
+
+
+
+    message.reply({
+
+      body,
+
+      attachment: response.data
+
+    });
+
+  }
+
 };
