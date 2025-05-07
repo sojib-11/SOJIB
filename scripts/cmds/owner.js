@@ -20,7 +20,7 @@ module.exports = {
     const ownerInfo = {
       name: "ODD _X SOJIB 💢 ",
       whatsapp: "+8801727501820",
-      botName: "LIGHT YAGAMI 📩💥 ",
+      botName: "LIGHT YAGAMI 💢💞 ",
       botType: "GoatBot",
       commandCooldown: "5s",
       ownerID: "61550628934323",
@@ -43,7 +43,7 @@ module.exports = {
 
     const body = `
 ╭──────────╮
-        ʙᴏᴛ ᴏᴡɴᴇʀ ɪɴғᴏ   😾💋
+        ʙᴏᴛ ᴏᴡɴᴇʀ ɪɴғᴏ   😾🔪
 ╰──────────╯      ──────────────────────────╯
 
 👤 ᴏᴡɴᴇʀ ɴᴀᴍᴇ: ${ownerInfo.name}
