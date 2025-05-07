@@ -1,5 +1,3 @@
-,cmd install   uptime.js  
-
 module.exports = {
 
 
