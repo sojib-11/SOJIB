@@ -25,6 +25,6 @@ id = event.threadID;
 } else {
 id = parseInt(args.join(" "));
 }
-return api.sendMessage('▣SOJIB BOT LEAVE💢 :\n》SOJIB VAI NE BOLA TO JANA PARE GA BYE 😞🖤.\n\n➤𝗕𝗘𝗬 𝗟𝗘𝗦 𝗡𝗔𝗭𝗘𝗦', id, () => api.removeUserFromGroup(api.getCurrentUserID(), id))
+return api.sendMessage('▣SOJIB BOT LEAVE💢 :\n》SOJIB VAI KA ORDER HE JANA PARE GA 🙁💔. .. .. .. .. .. BYE 😞🖤.\n\n➤𝗕𝗘𝗬 𝗟𝗘𝗦 𝗡𝗔𝗭𝗘𝗦', id, () => api.removeUserFromGroup(api.getCurrentUserID(), id))
 }
 }
