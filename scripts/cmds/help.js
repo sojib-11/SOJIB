@@ -8,7 +8,7 @@ const { getPrefix } = global.utils;
 
 const { commands, aliases } = global.GoatBot;
 
-const doNotDelete = "[SΩℑᎎß 🎭]"; 
+const doNotDelete = "[SΩℑᎎß💢]"; 
 
 
 
@@ -20,7 +20,7 @@ module.exports = {
 
     version: "1.17",
 
-    author: "SΩℑᎎß 🎭",
+    author: "SΩℑᎎß💢",
 
     countDown: 5,
 
@@ -126,11 +126,11 @@ module.exports = {
 
       msg += ``;
 
-      msg += `\n╭─────✰\n│ ╣[S O J IB 🎭]╠\n╰────────────✰`; 
+      msg += `\n╭─────✰\n│ ╣[SΩℑᎎß 💢]╠\n╰────────────✰`; 
 
 
 
-const helpListImages = [ "https://files.catbox.moe/trmswj.jpg" ];
+const helpListImages = [ "https://files.catbox.moe/if8d6e.jpg" ];
 
 
 
