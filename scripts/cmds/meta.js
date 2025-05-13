@@ -23,7 +23,7 @@ config:{
 onStart:async function ({ args, event, api }) {
   try {
     const prompt = args.join(" ");
-    const wait = await api.sendMessage("𝗪𝗮𝗶𝘁 𝗸𝗼𝗿𝗼 𝗕𝗮𝗯𝘆 <😘", event.threadID);
+    const wait = await api.sendMessage("𝗪𝗮𝗶𝘁 𝗸𝗼𝗿𝗼 𝗕𝗮𝗯𝘆 <🫠", event.threadID);
     const response = await axios.get(`${await baseApiUrl()}/meta?prompt=${encodeURIComponent(prompt)}&key=dipto008`);
     const data = response.data.imgUrls;
      await api.unsendMessage(wait.messageID);
