@@ -36,7 +36,7 @@ module.exports = {
     const line = "═".repeat(35);
 
     const uptimeString = `
-${lightning} ${crown} 𝗧𝗛𝗘 𝗚𝗢𝗔𝗧 𝗜𝗦 𝗦𝗧𝗜𝗟𝗟 𝗥𝗨𝗡𝗡𝗜𝗡𝗚 ${crown} ${lightning}
+${lightning} ${crown} 𝗧𝗛𝗘 BOT 𝗜𝗦 𝗦𝗧𝗜𝗟𝗟 𝗥𝗨𝗡𝗡𝗜𝗡𝗚 ${crown} ${lightning}
 ${line}
 ${timeEmoji} Days   : ${days}
 ${timeEmoji} Hours  : ${hours}
