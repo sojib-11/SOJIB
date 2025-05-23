@@ -7,7 +7,7 @@ module.exports = {
   config: {
     name: "welcome",
     version: "1.0",
-    author: "S A I M",
+    author: "S O J I B",
     category: "events",
   },
 
@@ -30,7 +30,7 @@ module.exports = {
 ║   Welcome {userNameTag}!
 ║   This ain’t just a group—it’s a whole vibe!
 ║
-║   ➤ Owner: S A I M
+║   ➤ Owner: S O J I B
 ╚════════════════════════════════════╝
       `,
     },
